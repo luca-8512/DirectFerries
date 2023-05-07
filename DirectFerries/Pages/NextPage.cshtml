@@ -1,0 +1,15 @@
+﻿@page "/next-page/{name}/{dob}"
+@model DirectFerries.Pages.NextPageModel
+@{
+    ViewData["Title"] = "Next page";
+}
+<div class="pageTile">Welcome @Model.Name</div>
+<div class="pageBody">Number of Vowel: @Model.Vowel</div>
+<div class="pageBody">Your age is: @Model.Age</div>
+<div class="pageBody">Number of days before next birthday: @Model.DaysBeforeBirthday</div>
+<table>
+    @for (int i=1; i<15; i++)
+    {
+        <tr><td><a target="_new" href="https://www.historynet.com/today-in-history/@(Model.RunupDOB.AddDays(-i).ToString("MMMM-dd"))">@Model.RunupDOB.AddDays(-i).ToString("ddd dd MMM yyyy")</a></td></tr>
+    }
+</table>

@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@section Scripts {
+    <script src="~/Pages/Index.cshtml.js" asp-append-version="true"></script>
+}
+
+<form id="account" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label id="nameLabel" for="name">Name</label>
+        <input type="text" id="name" Class="form-control" name="customer.Name" />
+        <label id="nameError" class="alert alert-danger">Please insert Name</label>
+    </div>
+    <div class="form-group">
+        <label id="surnameLabel" for="surname">Surname</label>
+        <input type="text" id="surname" Class="form-control" name="customer.Surname" />
+        <label id="surnameError" class="alert alert-danger">Please insert Surname</label>
+    </div>
+    <div class="form-group">
+        <label id="dobLabel" for="dob">DOB</label>
+        <input type="date" id="dob" Class="form-control" name="customer.DOB" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+        <label id="dobError" class="alert alert-danger">Please insert DOB using the date picker</label>
+        <label id="dobMsg" class="alert alert-info">Please use the date picker to select a date</label>
+    </div>
+    <button id="next-submit" type="submit" class="pageButton">Next</button>
+</form>
